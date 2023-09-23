@@ -1,17 +1,27 @@
 import { Context } from "hono";
 
-export const post = async (c: Context) => {
-  const url = new URL(c.req.url);
+import { sheet } from "../databases/sheet.js";
+import { Patient } from "../domains/Patient.js";
 
-  const requestBody = await c.req.json();
-  console.log({ request: requestBody });
+interface ReservationRequest {
+  patientInfo: Patient;
+}
+
+export const post = async (c: Context) => {
+  const requestBody = await c.req.json() as ReservationRequest;
+  console.log({ request: requestBody });  
+
+  const reservation = await sheet.post({
+    name: requestBody.patientInfo.name,
+    nameKana: requestBody.patientInfo.nameKana,
+    tel: requestBody.patientInfo.tel,
+  });
 
   const responseBody = {
     result: "ok",
     numberedTicket: {
-      id: "R001",
-      // imageUrl: `${url.origin}/1695452728.png`,
-      imageUrl: `https://cvm9vgmd-3000.asse.devtunnels.ms/1695452728.png`,
+      id: reservation.issuedNumber,
+      imageUrl: `${Bun.env.ORIGIN}/1695452728.png`,
     },
   };
 
