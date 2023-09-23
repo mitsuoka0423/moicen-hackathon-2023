@@ -3,7 +3,7 @@
   "name_for_human": "認高喜笑助整形外科",
   "name_for_model": "IssuingTicketsForOrthopedicSurgery",
   "description_for_human": "認高喜笑助整形外科のための番号札発行プラグイン - 東京都足立区五反野駅徒歩8分 交通事故診療も対応",
-  "description_for_model": "認高喜笑助整形外科のための番号札発行プラグイン - 東京都足立区五反野駅徒歩8分 交通事故診療も対応",
+  "description_for_model": "認高喜笑助整形外科のための番号札発行プラグイン - 東京都足立区五反野駅徒歩8分 ChatGPTで簡単予約",
   "auth": {
     "type": "none"
   },
