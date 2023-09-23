@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Reservation API
+  title: 認高喜笑助整形外科予約システム
   version: 1.0.0
 paths:
   /reservation:
@@ -30,17 +30,16 @@ paths:
                     enum:
                       - ok
                       - ng
-                  id:
+                  numberedTicket:
+                    type: object
+                    properties:
+                      imageUrl:
+                        type: string
+                        format: uri
+                        example: "https://example.com/1695452728.png"
+                      id:
+                        type: string
+                        example: "R001"
+                  message:
                     type: string
-                    example: "R001"
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  result:
-                    type: string
-                    enum:
-                      - ng
+                    example: "Internal Server Error"
