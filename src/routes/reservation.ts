@@ -21,7 +21,7 @@ export const post = async (c: Context) => {
     result: "ok",
     numberedTicket: {
       id: reservation.issuedNumber,
-      imageUrl: `${Bun.env.ORIGIN}/1695452728.png`,
+      imageUrl: `${Bun.env.ORIGIN}/${reservation.issuedNumber}.png`,
     },
   };
 
