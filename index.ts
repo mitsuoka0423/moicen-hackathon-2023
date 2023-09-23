@@ -1,9 +1,14 @@
 import { Hono } from "hono";
-import { serveStatic } from 'hono/bun';
+import { logger } from "hono/logger";
+import { prettyJSON } from "hono/pretty-json";
+import { serveStatic } from "hono/bun";
 
 const app = new Hono();
 
-app.use('/*', serveStatic({ root: './public' }))
+app.use("*", logger());
+app.use("*", prettyJSON());
+app.get("/*", serveStatic({ root: "./public" }));
 app.get("/", (c) => c.text("Hono!!"));
+app.post("/reservation", (c) => c.json({ result: "ok", id: "R001" }));
 
 export default app;
