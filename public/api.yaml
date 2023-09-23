@@ -5,8 +5,8 @@ info:
 paths:
   /reservation:
     post:
-      summary: Create a reservation
-      operationId: createReservation
+      summary: 整理券を発行する
+      operationId: issueNumberedTicket
       requestBody:
         required: true
         content:
@@ -14,9 +14,19 @@ paths:
             schema:
               type: object
               properties:
-                operationId:
-                  type: string
-                  example: "0123456789"
+                patientInfo:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: "足立太郎"
+                    nameKana:
+                      type: string
+                      example: "アダチタロウ"
+                    tel:
+                      type: string
+                      pattern: '^[0-9]{10,11}$'
+                      example: "09012345678"
       responses:
         '200':
           description: Successful response
