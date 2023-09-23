@@ -1,0 +1,32 @@
+openapi: "3.0.0"
+info:
+  title: API設計
+  version: 1.0.0
+paths:
+  /reservation:
+    post:
+      summary: 予約を作成する
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: "ok"
+                  id:
+                    type: string
+                    example: "R001"
+        'default':
+          description: 失敗
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: "ng"
