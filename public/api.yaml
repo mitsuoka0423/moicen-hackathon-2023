@@ -1,14 +1,25 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
-  title: API設計
+  title: Reservation API
   version: 1.0.0
 paths:
   /reservation:
     post:
-      summary: 予約を作成する
+      summary: Create a reservation
+      operationId: createReservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                operationId:
+                  type: string
+                  example: "0123456789"
       responses:
         '200':
-          description: 成功
+          description: Successful response
           content:
             application/json:
               schema:
@@ -16,12 +27,14 @@ paths:
                 properties:
                   result:
                     type: string
-                    example: "ok"
+                    enum:
+                      - ok
+                      - ng
                   id:
                     type: string
                     example: "R001"
-        'default':
-          description: 失敗
+        '400':
+          description: Bad request
           content:
             application/json:
               schema:
@@ -29,4 +42,5 @@ paths:
                 properties:
                   result:
                     type: string
-                    example: "ng"
+                    enum:
+                      - ng

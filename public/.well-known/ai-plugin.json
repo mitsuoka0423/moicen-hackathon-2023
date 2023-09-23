@@ -1,7 +1,7 @@
 {
   "schema_version": "v1",
   "name_for_human": "認高喜笑助クリニック整理券発行",
-  "name_for_model": "",
+  "name_for_model": "IssuingNumberedTickets",
   "description_for_human": "Plugin for issuing numbered tickets for the Mitomedata Kisyosuke Clinic.",
   "description_for_model": "Plugin for issuing numbered tickets for the Mitomedata Kisyosuke Clinic.",
   "auth": {
