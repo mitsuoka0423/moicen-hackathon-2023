@@ -7,6 +7,10 @@ interface ReservationRequest {
   patientInfo: Patient;
 }
 
+if (!Bun.env.ORIGIN) {
+  throw new Error("ORIGIN is required");
+}
+
 export const post = async (c: Context) => {
   const requestBody = await c.req.json() as ReservationRequest;
   console.log({ request: requestBody });  
@@ -21,7 +25,7 @@ export const post = async (c: Context) => {
     result: "ok",
     numberedTicket: {
       id: reservation.issuedNumber,
-      imageUrl: `${Bun.env.ORIGIN}/${reservation.issuedNumber}.png`,
+      image: `![整理券画像 番号は${reservation.issuedNumber}です](${Bun.env.ORIGIN}/${reservation.issuedNumber}.png)`,
     },
   };
 

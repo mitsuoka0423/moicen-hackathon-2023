@@ -2,11 +2,12 @@ openapi: 3.0.0
 info:
   title: 認高喜笑助整形外科予約システム
   version: 1.0.0
+
 paths:
   /reservation:
     post:
       summary: 整理券を発行する
-      operationId: issueNumberedTicket
+      operationId: createReservation
       requestBody:
         required: true
         content:
@@ -19,16 +20,14 @@ paths:
                   properties:
                     name:
                       type: string
-                      example: "足立太郎"
                     nameKana:
                       type: string
-                      example: "アダチタロウ"
                     tel:
                       type: string
-                      pattern: '^[0-9]{10,11}$'
-                      example: "09012345678"
+                operationId:
+                  type: string
       responses:
-        '200':
+        200:
           description: Successful response
           content:
             application/json:
@@ -43,13 +42,20 @@ paths:
                   numberedTicket:
                     type: object
                     properties:
-                      imageUrl:
+                      image:
                         type: string
-                        format: uri
-                        example: "https://example.com/1695452728.png"
                       id:
                         type: string
-                        example: "R001"
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    enum:
+                      - ng
                   message:
                     type: string
-                    example: "Internal Server Error"
