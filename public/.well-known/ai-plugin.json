@@ -5,14 +5,7 @@
   "description_for_human": "認高喜笑助整形外科の診察整理券を発行します - 東京都足立区五反野駅徒歩8分 交通事故診療も対応",
   "description_for_model": "認高喜笑助整形外科 - 診察整理券発行プラグイン - 東京都足立区五反野駅徒歩8分 ChatGPTで簡単予約",
   "auth": {
-    "type": "oauth",
-    "client_url": "https://github.com/login/oauth/authorize",
-    "authorization_url": "https://github.com/login/oauth/access_token",
-    "scope": "",
-    "authorization_content_type": "application/json",
-    "verification_tokens": {
-      "openai": "7a99e2911f08431ab5988808c09f9957"
-    }
+    "type": "none"
   },
   "api": {
     "type": "openapi",
