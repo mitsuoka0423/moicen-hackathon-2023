@@ -1,8 +1,44 @@
 openapi: 3.0.0
 info:
-  title: 認高喜笑助整形外科予約システム
+  title: 病院検索・予約システム
   version: 1.0.0
 paths:
+  /search:
+    get:
+      summary: クリニックを検索する
+      operationId: searchClinic
+      parameters:
+        - name: department
+          in: query
+          description: 科の種類
+          required: true
+          schema:
+            type: string
+            enum:
+              - orthopedics
+              - internalMedicine
+              - psychosomaticMedicine
+        - name: station
+          in: query
+          description: 駅の名前
+          required: true
+          schema:
+            type: string
+            enum:
+              - gotano
+              - kitasenju
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clinicId:
+                    type: string
+                    example: "C001"
+
   /reservation:
     post:
       summary: 整理券を発行する
@@ -14,6 +50,9 @@ paths:
             schema:
               type: object
               properties:
+                clinicId:
+                  type: string
+                  example: "C001"
                 patientInfo:
                   type: object
                   properties:
@@ -40,13 +79,22 @@ paths:
                     enum:
                       - ok
                       - ng
+                  clinic:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: "C001"
+                      name:
+                        type: string
+                        example: "認高喜笑助整形外科"
                   numberedTicket:
                     type: object
                     properties:
                       imageUrl:
                         type: string
                         format: uri
-                        example: "https://example.com/1695452728.png"
+                        example: "https://example.com/R001.png"
                       id:
                         type: string
                         example: "R001"
