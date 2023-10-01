@@ -1,6 +1,6 @@
 {
   "schema_version": "v1",
-  "name_for_human": "認高喜笑助整形外科",
+  "name_for_human": "認高喜笑助整形外科 v0.1",
   "name_for_model": "IssuingTicketsForOrthopedicSurgery",
   "description_for_human": "認高喜笑助整形外科の診察整理券を発行します - 東京都足立区五反野駅徒歩8分 交通事故診療も対応",
   "description_for_model": "認高喜笑助整形外科 - 診察整理券発行プラグイン - 東京都足立区五反野駅徒歩8分 ChatGPTで簡単予約",
@@ -9,10 +9,10 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://cvm9vgmd-3000.asse.devtunnels.ms/api.yaml",
+    "url": "http://localhost:3002/api.yaml",
     "is_user_authenticated": false
   },
-  "logo_url": "https://cvm9vgmd-3000.asse.devtunnels.ms/logo.jpg",
+  "logo_url": "http://localhost:3002/logo.jpg",
   "contact_email": "mono0423@gmail.com",
   "legal_info_url": "http://www.example.com/legal"
 }
